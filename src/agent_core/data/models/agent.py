@@ -35,6 +35,7 @@ class Agent:
     agent_org: AgentOrg
     tools: list[AgentTools]
     guardrails: list[AgentGuardrails]
+    skills: list[str, Any]
     status: str
 
 
