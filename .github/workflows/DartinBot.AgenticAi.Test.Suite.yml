@@ -1,0 +1,24 @@
+name: DartinBot.AgenticAi.Test.Suite
+
+on:
+    - pull_request
+    - workflow_dispatch
+jobs:
+    Run-DartinBot-AgenticAi-Unit-Tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout ${{github.workspace}} Repo
+              uses: actions/checkout@v6
+
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.12"
+
+            - name: Install test dependencies
+              run: python -m pip install pytest pydantic
+            
+            - name: Run DartinBot.AgenticAi Unit Tests Suite
+              run: python -m pytest src/tests/unittests
+
+
